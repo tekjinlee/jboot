@@ -1,5 +1,6 @@
 package com.jboot.domain.member.dto;
 
+import com.jboot.domain.member.dao.MemberRepository;
 import com.jboot.domain.member.domain.Member;
 import org.junit.Test;
 import org.junit.runner.RunWith;

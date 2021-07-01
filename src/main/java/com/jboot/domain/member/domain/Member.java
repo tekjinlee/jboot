@@ -1,5 +1,7 @@
 package com.jboot.domain.member.domain;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Table(name = "tb_member")
@@ -15,6 +17,7 @@ public class Member {
     public Member() {
     }
 
+    @Builder
     public Member(String member_id, String member_pw, String name) {
         this.member_id = member_id;
         this.member_pw = member_pw;
@@ -44,4 +47,6 @@ public class Member {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }
