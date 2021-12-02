@@ -15,6 +15,7 @@ public class MemberSignUpService {
     private final MemberRepository memberRepository;
 
     public Member doSighUp(final SignUpRequest dto){
+
         return memberRepository.save(dto.toEntity());
     }
 }

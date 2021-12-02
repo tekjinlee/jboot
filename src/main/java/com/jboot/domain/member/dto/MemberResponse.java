@@ -14,7 +14,7 @@ public class MemberResponse {
     private String name;
 
     public MemberResponse(final Member member) {
-        this.memberId = member.getMember_id();
+        this.memberId = member.getMemberId();
         this.name = member.getName();
     }
 }
