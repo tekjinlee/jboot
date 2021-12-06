@@ -35,4 +35,8 @@ public class SignUpRequest {
                 .name(name)
                 .build();
     }
+
+    public void passwordEncoding(String encodingPassword){
+        this.memberPw = encodingPassword;
+    }
 }

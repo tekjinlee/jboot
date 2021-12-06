@@ -6,6 +6,8 @@ import com.jboot.domain.member.domain.Member;
 import com.jboot.domain.member.dto.MemberResponse;
 import com.jboot.domain.member.dto.SignUpRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,8 +20,13 @@ public class MemberApi {
     private final MemberSignUpService memberSignUpService;
     private final MemberFindDao memberFindDao;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping
     public MemberResponse create(@RequestBody @Valid final SignUpRequest dto) {
+        // FindId 중복체크 후 처리
+
         final Member member = memberSignUpService.doSighUp(dto);
         return new MemberResponse(member);
     }
