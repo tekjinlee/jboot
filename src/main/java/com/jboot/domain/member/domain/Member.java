@@ -29,7 +29,9 @@ public class Member implements UserDetails {
     @Column(name = "AUTH")
     String auth;
 
+    @Column(name = "MEMBER_ROLES")
     @ElementCollection(fetch = FetchType.EAGER)
+    @Builder.Default
     private List<String> roles = new ArrayList<>();
 
     public Member() {

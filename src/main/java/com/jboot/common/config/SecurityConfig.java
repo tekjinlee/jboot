@@ -1,5 +1,7 @@
 package com.jboot.common.config;
 
+import com.jboot.common.jwt.JwtAuthenticationFilter;
+import com.jboot.common.jwt.JwtAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

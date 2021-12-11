@@ -4,13 +4,14 @@ import com.jboot.domain.member.domain.Member;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import javax.validation.Valid;
 
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-public class SignUpRequest {
+public class SignInRequest {
 
     @Valid
     private String memberId;
@@ -18,26 +19,23 @@ public class SignUpRequest {
     @Valid
     private String memberPw;
 
-    @Valid
-    private String name;
-
-    public SignUpRequest(@Valid String memberId, @Valid String memberPw, @Valid String name) {
-        // TODO: 2021-07-02 member Pw 에 대한 해쉬 및 암호화에 대해 추가 할 것 
+    public SignInRequest(@Valid String memberId, @Valid String memberPw) {
         this.memberId = memberId;
         this.memberPw = memberPw;
-        this.name = name;
     }
 
     public Member toEntity(){
         return Member.builder()
                 .member_id(memberId)
                 .member_pw(memberPw)
-                .name(name)
-
                 .build();
     }
 
-    public void passwordEncoding(String encodingPassword){
-        this.memberPw = encodingPassword;
+    public UsernamePasswordAuthenticationToken toAuthentication(){
+        return new UsernamePasswordAuthenticationToken(memberId, memberPw);
     }
+
+//    public void passwordEncoding(String encodingPassword){
+//        this.memberPw = encodingPassword;
+//    }
 }

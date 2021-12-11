@@ -1,4 +1,4 @@
-package com.jboot.common.config;
+package com.jboot.common.jwt;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
